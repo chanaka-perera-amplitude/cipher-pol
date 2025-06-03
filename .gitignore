@@ -1,0 +1,90 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython cache
+*.c
+*.cpp
+*.so
+
+# Virtual environment folders
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+.venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environment variable files
+.env
+.env.*
+*.env
+
+# VS Code settings
+.vscode/
+.code-workspace
+
+# PyCharm project files
+.idea/
+*.iml
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Test/report files
+coverage.*
+.cache
+*.log
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pytest
+.cache/
+
+# Sphinx documentation
+docs/_build/
+
+# Local files
+*.local
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# profiling
+profiler.log
+
+# Unit test / coverage reports
+htmlcov/
+
+# Other
+*.sqlite3
