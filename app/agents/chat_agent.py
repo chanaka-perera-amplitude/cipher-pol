@@ -135,6 +135,7 @@ class ChatAgent:
         print("--- End History Log ---")
 
     def chat(self, conversation_id: str, user_id: str, message_text: str) -> str:
+        print(f"DEBUG: ChatAgent.chat ENTRY - conversation_id='{conversation_id}', user_id='{user_id}', message='{message_text[:50]}...'")
         agent = self._get_or_create_agent(conversation_id, user_id)
         
         if not agent:

@@ -88,3 +88,4 @@ htmlcov/
 
 # Other
 *.sqlite3
+google_auth.json
