@@ -3,19 +3,10 @@ import os
 from pydantic import BaseModel, Field # Import Field for descriptions in Pydantic model
 from typing import Optional
 from utils import logger
+from models.tavily import TavilySearchParams
 
 # LlamaIndex import for creating a tool
 from llama_index.core.tools import FunctionTool
-
-# 1. Your Pydantic model for parameters (Good as is, maybe add descriptions)
-class TavilySearchParams(BaseModel):
-    query: str = Field(..., description="The search query string.")
-    topic: Optional[str] = Field(default="general", description="The topic of the search, e.g., 'general', 'news', 'academic'.")
-    search_depth: Optional[str] = Field(default="basic", description="The depth of the search: 'basic' or 'advanced'.")
-    chunks_per_source: Optional[int] = Field(default=3, description="Number of chunks to process per search source.")
-    max_results: Optional[int] = Field(default=1, description="The maximum number of search results to return.")
-    days: Optional[int] = Field(default=7, description="Search for content published within the last 'days' days.")
-
 
 # 2. Your actual Python function that performs the action
 def tavily_search_function(query: str, 

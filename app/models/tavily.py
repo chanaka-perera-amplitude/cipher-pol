@@ -1,17 +1,25 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Literal
 
 class TavilySearchParams(BaseModel):
-    query: str = Field(..., description="The specific search query string the user wants to find information about.")
-    topic: Optional[str] = Field(
-        default=None, # Changed default to None to make it easier to exclude if not provided
-        description="The general topic of the search (e.g., 'news', 'research', 'finance'). Defaults to 'general' if not set by LLM."
+    query: str = Field(..., description="The search query string to look up.")
+    topic: Optional[Literal["general", "news"]] = Field(
+        default="general",
+        description=(
+            "The category of the search. Use 'news' for real-time updates on topics like politics, sports, "
+            "and current events covered by mainstream media. Use 'general' for broader searches that may "
+            "include a wide range of sources."
+        )
     )
     search_depth: Optional[str] = Field(
-        default="basic", 
-        description="The depth of the search. Can be 'basic' for a quick search or 'advanced' for a more thorough one."
+        default="basic",
+        description="The depth of the search: 'basic' or 'advanced'."
     )
     max_results: Optional[int] = Field(
-        default=3, # Changed default to a slightly more common number
+        default=3,
         description="The maximum number of search results to return."
+    )
+    days: Optional[int] = Field(
+        default=7,
+        description="Only return results from the last N days."
     )
